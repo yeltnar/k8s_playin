@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: caddy-node-port
+spec:
+  ports:
+  - name: 80-8888-node-port
+    port: 80
+    protocol: TCP
+    targetPort: 8888
+    nodePort: 31080 # 30000-32767, Optional field
+  selector:
+    app: caddy
+  type: NodePort
